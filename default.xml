@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <default sync-j="4" revision="master"/>
+
+  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+  <remote fetch="https://github.com/Freescale" name="freescale"/>
+  <remote fetch="https://github.com/openembedded" name="oe"/>
+  <remote fetch="http://172.17.1.11/ScottW514" name="openglow"/>
+
+  <project remote="yocto" revision="master" name="poky" path="sources/poky"/>
+  <project remote="yocto" revision="master" name="meta-freescale" path="sources/meta-freescale"/>
+
+  <project remote="oe" revision="master" name="meta-openembedded" path="sources/meta-openembedded"/>
+
+  <project remote="openglow" revision="master" name="openglow-bsp" path="sources/base">
+	<copyfile dest="README" src="README"/>
+	<copyfile dest="setup-environment" src="setup-environment"/>
+  </project>
+  <project remote="openglow" name="meta-openglow" path="sources/meta-openglow" revision="master" />
+
+</manifest>
