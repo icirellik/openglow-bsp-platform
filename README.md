@@ -27,7 +27,7 @@ To get the BSP you need to have `repo` installed:
 ~$: PATH=${PATH}:~/bin
 ~$: mkdir openglow-bsp
 ~$: cd openglow-bsp
-~$: repo init -u https://gitlab.openglow.org/openglow/openglow-bsp-platform.git
+~$: repo init -u https://gitlab.openglow.org/openglow/openglow-bsp-platform.git -b master
 ~$: repo sync
 ```
 
