@@ -1,12 +1,9 @@
 # OpenGlow BSP Platform
-
-This is the Yocto Board Support Package for the OpenGlow Standard control board.
-  
 The OpenGlow Standard is a drop-in replacement for the factory control boards in Glowforge Basic and Pro CNC lasers.
   
-This BSP is based upon `meta-freescale`.
+This is the [repo](https://code.google.com/archive/p/git-repo/) package to stackup Yocto layers for the OpenGlow Board Support Package, and is based upon `meta-freescale`.
 
-As the Project is currently in early Alpha, and only supports the `master` and `master-next` branches for all upstream projects.
+As the Project is currently in early Alpha, and only supports the `master` branches for all upstream projects.
 
 # Build and Install
 
@@ -20,11 +17,13 @@ To get the BSP you need to have `repo` installed:
 ~$: chmod a+x ~/bin/repo
 ~$: PATH=${PATH}:~/bin
 ```
-
+Add the following to the end of ```~/.bashrc``` to permanently add ```repo``` to your path:
+```console
+export PATH=~/bin:$PATH
+```
 ## Download the BSP source:
 
 ```console
-~$: PATH=${PATH}:~/bin
 ~$: mkdir openglow-bsp
 ~$: cd openglow-bsp
 ~$: repo init -u https://gitlab.openglow.org/openglow/openglow-bsp-platform.git -b master
@@ -40,10 +39,17 @@ At the end of the commands you have all meta packages you need to start work wit
 ~$ sudo chmod -R 777 /opt/freescale
 ```
 
-## To build the OpenGlow image:
-
+## Build the OpenGlow Image
+First time environment setup:
 ```console
-~$: source ./setup-environment build
+(in openglow-bsp directory)
+~$: MACHINE=openglow_std DISTRO=openglow . setup-environment openglow-image
+~$: bitbake openglow
+```
+Subsequent builds:
+```console
+(in openglow-bsp directory)
+~$: MACHINE=openglow_std . setup-environment openglow-image
 ~$: bitbake openglow
 ```
 
